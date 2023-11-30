@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1418734532714875227}
   - component: {fileID: 1418734532714875224}
   - component: {fileID: 1418734532714875225}
-  - component: {fileID: 6182627010450504924}
+  - component: {fileID: 3717401835391901912}
   m_Layer: 0
   m_Name: BigEnemy
   m_TagString: Enemy
@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6182627010450504924
+--- !u!114 &3717401835391901912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -6,9 +6,9 @@ using UnityEngine;
 public class WayPointMover : MonoBehaviour 
 {   
     
-    private Waypoint waypoints;
+    [SerializeField] private Waypoint waypoints;
 
-    [SerializeField] private float MoveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
 
     [SerializeField] private float distanceThreshold = 0.1f;
 
@@ -22,9 +22,9 @@ public class WayPointMover : MonoBehaviour
         {
             StartCoroutine(DelayedAction());
             actionStarted = true;
-            currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint);
-            transform.LookAt(currentWaypoint);
-            waypoints = GetComponent<Waypoint>().WayPoints;
+
+          
+           // waypoints = GetComponent<Waypoint>().WayPoints;
         }
     }
     private IEnumerator DelayedAction()
@@ -37,14 +37,18 @@ public class WayPointMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint);
+        transform.position = currentWaypoint.position;
 
+        currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint);
+        transform.LookAt(currentWaypoint);
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        waypoints.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, MoveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, moveSpeed * Time.deltaTime);
 
         if(Vector3.Distance(transform.position, currentWaypoint.position) < distanceThreshold)
         {

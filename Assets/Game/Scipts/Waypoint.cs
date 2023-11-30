@@ -8,11 +8,11 @@ public class Waypoint : MonoBehaviour
     [Range(0f, 2f)]
     [SerializeField]private float radius = 1.0f; // The radius of the wire sphere.
 
-    [SerializeField] private  Waypoint waypoints;
-    public Waypoint WayPoints
+    /*[SerializeField] private  Waypoint waypoints;
+       public Waypoint WayPoints
     {
         get { return waypoints; }   
-    }
+    }*/
    
     
     public void OnDrawGizmos()
